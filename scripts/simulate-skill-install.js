@@ -57,7 +57,7 @@ console.log("");
 console.log(`What to Avoid: ${narrative.avoid}\n`);
 console.log(`Closing: ${narrative.closing}\n`);
 
-console.log("=== Attached Local HTML Result Page ===\n");
+console.log("=== Immersive HTML Result Page ===\n");
 console.log(`${localHtml.label}: ${localHtml.url}`);
 console.log(`${localHtml.note}\n`);
 

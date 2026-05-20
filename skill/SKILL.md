@@ -37,7 +37,7 @@ Return:
 6. Practical Guidance
 7. What to Avoid
 8. Poetic Closing
-9. Local HTML Result Page
+9. Immersive HTML Result Page
 
 ## Interpretation Rules
 
@@ -61,7 +61,7 @@ For English users, explain Chinese terms gently:
 
 The voice should feel ancient, clear, respectful, and usable.
 
-## Local HTML Result Page
+## Immersive HTML Result Page
 
 This section is mandatory. Never omit it from the final answer.
 
