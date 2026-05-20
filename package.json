@@ -12,7 +12,8 @@
   },
   "scripts": {
     "test": "node test/core.test.js",
-    "demo": "node scripts/print-demo.js"
+    "demo": "node scripts/print-demo.js",
+    "simulate": "node scripts/simulate-skill-install.js"
   },
   "keywords": [
     "liuyao",

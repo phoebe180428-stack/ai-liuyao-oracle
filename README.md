@@ -94,6 +94,16 @@ demo/index.html
 
 The demo is intentionally static. It works without a build step and shows the intended product experience: question input, casting method, animated six-line reveal, primary hexagram, changed hexagram, and AI-ready interpretation.
 
+## Simulate A Skill Install
+
+Before publishing to GitHub, you can simulate what another developer would experience after copying `skill/SKILL.md` into their own model:
+
+```bash
+npm run simulate
+```
+
+This prints a full mock conversation, structured hexagram data, the user-facing reading, and the prompt that would be sent to a real LLM.
+
 ## Repository Map
 
 ```txt
