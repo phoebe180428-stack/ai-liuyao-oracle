@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LiuyaoReadingResult",
+  "type": "object",
+  "required": ["version", "question", "method", "primaryHexagram", "changedHexagram", "movingLines", "usefulGod", "judgement"],
+  "properties": {
+    "version": { "type": "string" },
+    "question": { "type": "string" },
+    "method": { "type": "string" },
+    "topic": { "type": "string" },
+    "locale": { "type": "string" },
+    "primaryHexagram": { "type": "object" },
+    "changedHexagram": { "type": "object" },
+    "mutualHexagram": { "type": "object" },
+    "movingLines": {
+      "type": "array",
+      "items": { "type": "integer", "minimum": 1, "maximum": 6 }
+    },
+    "usefulGod": { "type": "object" },
+    "judgement": {
+      "type": "object",
+      "required": ["trend", "confidence", "summary"],
+      "properties": {
+        "trend": { "type": "string" },
+        "confidence": { "type": "number" },
+        "summary": { "type": "string" }
+      }
+    }
+  }
+}

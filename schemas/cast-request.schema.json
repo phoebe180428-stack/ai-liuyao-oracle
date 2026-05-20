@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LiuyaoCastRequest",
+  "type": "object",
+  "required": ["question", "method"],
+  "properties": {
+    "question": { "type": "string" },
+    "method": { "enum": ["coins", "numbers", "time"] },
+    "topic": { "type": "string", "default": "general" },
+    "locale": { "type": "string", "default": "en" },
+    "numbers": {
+      "type": "array",
+      "items": { "type": "integer" },
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "tosses": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "oneOf": [
+          { "type": "integer", "minimum": 0, "maximum": 3 },
+          {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": { "enum": ["heads", "tails", "flower", true, false, 1, 0] }
+          }
+        ]
+      }
+    },
+    "date": {
+      "description": "ISO datetime for time casting.",
+      "type": "string"
+    }
+  }
+}

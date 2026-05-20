@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Liuyao Oracle</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="oracle-panel">
+        <div class="brand">
+          <span class="seal">六爻</span>
+          <div>
+            <p class="eyebrow">AI Liuyao Oracle</p>
+            <h1>Ask the six lines where uncertainty wants to move.</h1>
+          </div>
+        </div>
+
+        <label class="field">
+          <span>Your question</span>
+          <textarea id="question">Should I accept this new job offer?</textarea>
+        </label>
+
+        <div class="method-row" role="tablist">
+          <button class="method active" data-method="time">Current Time</button>
+          <button class="method" data-method="numbers">Three Numbers</button>
+          <button class="method" data-method="coins">Coin Ritual</button>
+        </div>
+
+        <label class="field numbers-field hidden">
+          <span>Three intuitive numbers</span>
+          <input id="numbers" value="12, 25, 8" />
+        </label>
+
+        <button id="cast" class="cast-button">Cast the Oracle</button>
+      </section>
+
+      <section class="result-panel">
+        <div class="hexagram-stage" id="lines"></div>
+        <div class="reading">
+          <p class="eyebrow">Primary Hexagram</p>
+          <h2 id="primary">Waiting for the oracle</h2>
+          <p id="summary">Choose a casting method and reveal the six-line pattern.</p>
+          <dl>
+            <div><dt>Changed</dt><dd id="changed">-</dd></div>
+            <div><dt>Moving Lines</dt><dd id="moving">-</dd></div>
+            <div><dt>Useful God</dt><dd id="god">-</dd></div>
+            <div><dt>Trend</dt><dd id="trend">-</dd></div>
+          </dl>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
