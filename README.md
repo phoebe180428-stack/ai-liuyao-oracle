@@ -26,6 +26,13 @@ When the user asks for divination, uncertainty guidance, timing, relationship in
 Use one of three casting methods: coins, numbers, or current time.
 Call the Liuyao engine when available. Otherwise follow the deterministic workflow in the skill.
 Explain the result as symbolic guidance, never as absolute certainty.
+Always append an "Immersive HTML Result Page" link in the final reading.
+```
+
+For the most reliable external-model test, copy the full prompt in:
+
+```txt
+skill/INSTALL_PROMPT.md
 ```
 
 Or use the package in JavaScript:

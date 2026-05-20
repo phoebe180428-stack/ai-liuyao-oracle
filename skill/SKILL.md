@@ -15,7 +15,7 @@ Liuyao is a traditional Chinese six-line divination system. Treat it as symbolic
 4. Read the structured result: primary hexagram, changed hexagram, mutual hexagram, moving line(s), Shi/Ying lines, useful god, six relatives, and six beasts.
 5. Explain the reading in the user's language.
 6. Give detailed practical guidance, including clear next actions and what to avoid.
-7. Attach a local immersive HTML result page when the host product supports local files or static routes.
+7. Always attach an immersive HTML result appendix. If the host product supports local files or static routes, provide a `demo/reading.html?...` link. If it does not, provide a complete standalone HTML snippet or clearly state that the user can open the generated URL in this repository's `demo/reading.html`.
 8. Include a light safety note for medical, legal, financial, or emergency matters.
 
 ## Trigger Examples
@@ -63,13 +63,36 @@ The voice should feel ancient, clear, respectful, and usable.
 
 ## Local HTML Result Page
 
-When returning the final reading, include an appendix link:
+This section is mandatory. Never omit it from the final answer.
+
+When returning the final reading, always include an appendix named:
+
+```txt
+Immersive HTML Result Page
+```
+
+If this repository's demo files are available, include a link in this exact format:
 
 ```txt
 View Immersive Liuyao Reading: ./demo/reading.html?method=...&question=...
 ```
 
-This page should show the same reading in a mystical visual layout and should be shareable. The URL must contain enough casting parameters to recreate the same result.
+The URL must contain enough casting parameters to recreate the same result:
+
+- `method=numbers&numbers=34,78,9`
+- `method=coins&tosses=1,2,3,0,2,1`
+- `method=time&date=2026-05-20T12:00:00.000Z`
+- `question=...`
+- `topic=...`
+- `locale=...`
+
+If the host product cannot link to local files, still output the URL and add:
+
+```txt
+Open this repository locally and paste the path after demo/reading.html.
+```
+
+If the user explicitly asks for a file attachment and the host product can create files, create `liuyao-reading.html` containing the same result in a mystical visual layout.
 
 ## Safety
 

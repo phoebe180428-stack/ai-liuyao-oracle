@@ -2,6 +2,7 @@ import { readFile } from "node:fs/promises";
 import { createLiuyaoSkill } from "../src/index.js";
 
 const skillText = await readFile(new URL("../skill/SKILL.md", import.meta.url), "utf8");
+const installPrompt = await readFile(new URL("../skill/INSTALL_PROMPT.md", import.meta.url), "utf8");
 const liuyao = createLiuyaoSkill({
   locale: "en",
   style: "mystic-practical"
@@ -23,8 +24,9 @@ const { reading, narrative, localHtml, prompt } = result;
 
 console.log("=== GitHub Visitor Simulation ===\n");
 console.log("1. Developer finds this repository on GitHub.");
-console.log("2. Developer copies skill/SKILL.md into their own AI agent instructions.");
+console.log("2. Developer copies skill/INSTALL_PROMPT.md into their own AI agent instructions.");
 console.log(`3. Skill loaded: ${skillText.includes("Liuyao Oracle Skill") ? "yes" : "no"}\n`);
+console.log(`4. HTML appendix required: ${installPrompt.includes("Every final reading MUST include") ? "yes" : "no"}\n`);
 
 console.log("=== Simulated User Conversation ===\n");
 console.log(`User: ${userQuestion}`);
