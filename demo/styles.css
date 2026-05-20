@@ -155,7 +155,7 @@ button {
 }
 
 .result-panel {
-  min-height: 620px;
+  min-height: 680px;
   display: grid;
   grid-template-columns: 0.82fr 1fr;
   overflow: hidden;
@@ -211,6 +211,7 @@ button {
   padding: 38px;
   display: grid;
   align-content: center;
+  overflow: auto;
 }
 
 #summary {
@@ -239,6 +240,43 @@ dt {
 
 dd {
   margin: 0;
+}
+
+.interpretation {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.interpretation h3 {
+  margin: 0 0 18px;
+  color: var(--paper);
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.interpretation section {
+  margin-top: 16px;
+}
+
+.interpretation h4 {
+  margin: 0 0 6px;
+  color: var(--gold);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.interpretation p {
+  margin: 0;
+  color: rgba(243, 234, 216, 0.76);
+  line-height: 1.62;
+}
+
+.interpretation .closing {
+  margin-top: 18px;
+  color: var(--jade);
+  font-style: italic;
 }
 
 @keyframes reveal {

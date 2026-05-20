@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { castByCoins, castByNumbers, castByTime, createLiuyaoSkill } from "../src/index.js";
+import { buildNarrativeReading, castByCoins, castByNumbers, castByTime, createLiuyaoSkill } from "../src/index.js";
 
 const numberReading = castByNumbers({
   question: "Should I accept this new job offer?",
@@ -14,6 +14,7 @@ assert.equal(numberReading.changedHexagram.lines.length, 6);
 assert.deepEqual(numberReading.movingLines, [2]);
 assert.ok(numberReading.primaryHexagram.nameEn);
 assert.ok(numberReading.usefulGod.type);
+assert.ok(buildNarrativeReading(numberReading).coreOmen.includes(numberReading.primaryHexagram.nameEn));
 
 const coinReading = castByCoins({
   question: "What is changing?",
@@ -40,6 +41,7 @@ const result = await skill.run({
 });
 
 assert.ok(result.prompt.includes("Liuyao"));
+assert.ok(result.narrative.guidance);
 assert.ok(result.reading.primaryHexagram.nameZh);
 
 console.log("core tests passed");

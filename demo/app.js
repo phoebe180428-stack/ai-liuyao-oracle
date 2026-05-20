@@ -1,4 +1,4 @@
-import { castByCoins, castByNumbers, castByTime } from "../src/index.js";
+import { buildNarrativeReading, castByCoins, castByNumbers, castByTime } from "../src/index.js";
 
 const state = { method: "time" };
 const question = document.querySelector("#question");
@@ -51,6 +51,14 @@ function render(reading) {
   document.querySelector("#trend").textContent =
     `${reading.judgement.trend} (${reading.judgement.confidence})`;
   document.querySelector("#summary").textContent = reading.judgement.summary;
+
+  const narrative = buildNarrativeReading(reading);
+  document.querySelector("#reading-title").textContent = narrative.title;
+  document.querySelector("#core-omen").textContent = narrative.coreOmen;
+  document.querySelector("#changing-energy").textContent = narrative.changingEnergy;
+  document.querySelector("#guidance").textContent = narrative.guidance;
+  document.querySelector("#avoid").textContent = narrative.avoid;
+  document.querySelector("#closing").textContent = narrative.closing;
 }
 
 methods.forEach((button) => {

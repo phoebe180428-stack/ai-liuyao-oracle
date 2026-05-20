@@ -75,3 +75,43 @@ Write the reading for an international audience:
 
 Constraints: Never claim certainty. Do not replace medical, legal, financial, or emergency advice.`;
 }
+
+export function buildNarrativeReading(reading, options = {}) {
+  const language = options.language || reading.locale || "en";
+  const primary = reading.primaryHexagram;
+  const changed = reading.changedHexagram;
+  const useful = reading.usefulGod;
+  const moving = reading.movingLines.length
+    ? reading.movingLines.map((line) => `Line ${line}`).join(", ")
+    : "No moving lines";
+
+  if (language.startsWith("zh")) {
+    return {
+      title: `${primary.nameZh} 之 ${changed.nameZh}`,
+      coreOmen: `${primary.nameZh} 显示当前局势已经形成清晰的结构，但真正的答案藏在变化之中。${reading.judgement.summary}`,
+      changingEnergy: `动爻：${moving}。变卦 ${changed.nameZh} 代表事情接下来会转向的新形态，需要观察哪些力量正在从内侧推动局势。`,
+      usefulGod: `本次用神为 ${useful.type}，代表 ${useful.meaning}。它是判断这件事时最需要看的象征焦点。`,
+      guidance: "不要急着把卦象当成命令。它更像一面镜子：先看清局势，再决定行动的力度、时机和边界。",
+      avoid: "避免在信息不完整时强行推进，也避免把一次占卜当作替代现实判断的唯一答案。",
+      closing: "卦不是替你选择命运，而是提醒你：变化已经在路上，关键是你如何回应。"
+    };
+  }
+
+  const primaryImage = `${primary.upper.nature} above ${primary.lower.nature}`;
+  const changedImage = `${changed.upper.nature} above ${changed.lower.nature}`;
+  const trendCopy = {
+    favorable: "The omen is broadly supportive, but it still asks for timing rather than force.",
+    mixed_with_conditions: "The omen is conditional: the path can open, but only if the pressure is handled with care.",
+    challenging: "The omen is cautious. It asks for protection, patience, and clearer ground before decisive action."
+  }[reading.judgement.trend] || reading.judgement.summary;
+
+  return {
+    title: `${primary.nameEn} changing to ${changed.nameEn}`,
+    coreOmen: `${primary.nameEn}, ${primaryImage}, describes the present pattern around your question. ${trendCopy}`,
+    changingEnergy: `${moving} leads toward ${changed.nameEn}, ${changedImage}. This shows where the situation is no longer still and where your attention should go first.`,
+    usefulGod: `The useful god is ${useful.type}: ${useful.meaning}. In Liuyao, this is the symbolic focus selected by the nature of the question.`,
+    guidance: "Move as if you are listening for timing. Clarify the real pressure, separate desire from signal, and choose the next step that keeps your position flexible.",
+    avoid: "Avoid forcing certainty out of an uncertain moment. Do not treat the oracle as medical, legal, financial, or emergency advice.",
+    closing: "The six lines do not close the future; they show where the future is beginning to bend."
+  };
+}

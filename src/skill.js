@@ -1,5 +1,5 @@
 import { castLiuyao } from "./core.js";
-import { buildOraclePrompt } from "./prompt.js";
+import { buildNarrativeReading, buildOraclePrompt } from "./prompt.js";
 
 export function createLiuyaoSkill(defaults = {}) {
   return {
@@ -18,6 +18,9 @@ export function createLiuyaoSkill(defaults = {}) {
       const reading = castLiuyao({ ...defaults, ...input });
       return {
         reading,
+        narrative: buildNarrativeReading(reading, {
+          language: input.locale || defaults.locale
+        }),
         prompt: buildOraclePrompt(reading, {
           language: input.locale || defaults.locale,
           style: input.style || defaults.style
