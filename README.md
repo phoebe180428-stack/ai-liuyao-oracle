@@ -1,6 +1,6 @@
 # AI Liuyao Oracle
 
-Install an ancient Chinese six-line divination skill into any AI product.
+A mystical Chinese oracle skill that any AI agent can install.
 
 AI Liuyao Oracle is a skill-first open-source project for bringing Liuyao, the traditional Chinese six-line oracle system, into modern LLM apps. It includes a deterministic casting engine, AI interpretation prompts, a portable `SKILL.md`, and a visual result page that can be embedded in your own product.
 
