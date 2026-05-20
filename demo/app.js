@@ -6,6 +6,7 @@ const numbers = document.querySelector("#numbers");
 const numbersField = document.querySelector(".numbers-field");
 const methods = document.querySelectorAll(".method");
 const castButton = document.querySelector("#cast");
+const immersiveLink = document.querySelector("#immersive-link");
 const linesEl = document.querySelector("#lines");
 
 function randomCoinTosses() {
@@ -13,6 +14,7 @@ function randomCoinTosses() {
 }
 
 function cast() {
+  const castDate = new Date();
   const base = {
     question: question.value,
     topic: "career",
@@ -21,17 +23,46 @@ function cast() {
 
   if (state.method === "numbers") {
     const values = numbers.value.split(",").map((value) => Number(value.trim()));
-    return castByNumbers({ ...base, numbers: values });
+    return {
+      method: "numbers",
+      payload: { ...base, numbers: values },
+      reading: castByNumbers({ ...base, numbers: values })
+    };
   }
 
   if (state.method === "coins") {
-    return castByCoins({ ...base, tosses: randomCoinTosses() });
+    const tosses = randomCoinTosses();
+    return {
+      method: "coins",
+      payload: { ...base, tosses },
+      reading: castByCoins({ ...base, tosses })
+    };
   }
 
-  return castByTime({ ...base, date: new Date() });
+  return {
+    method: "time",
+    payload: { ...base, date: castDate.toISOString() },
+    reading: castByTime({ ...base, date: castDate })
+  };
 }
 
-function render(reading) {
+function immersiveUrl(method, payload) {
+  const params = new URLSearchParams({
+    method,
+    question: payload.question,
+    topic: payload.topic,
+    locale: payload.locale
+  });
+
+  if (method === "numbers") params.set("numbers", payload.numbers.join(","));
+  if (method === "coins") params.set("tosses", payload.tosses.join(","));
+  if (method === "time") params.set("date", payload.date);
+
+  return `./reading.html?${params.toString()}`;
+}
+
+function render(result) {
+  const { method, payload, reading } = result;
   linesEl.innerHTML = "";
   reading.primaryHexagram.lines.slice().reverse().forEach((line, index) => {
     const el = document.createElement("div");
@@ -59,6 +90,7 @@ function render(reading) {
   document.querySelector("#guidance").textContent = narrative.guidance;
   document.querySelector("#avoid").textContent = narrative.avoid;
   document.querySelector("#closing").textContent = narrative.closing;
+  immersiveLink.href = immersiveUrl(method, payload);
 }
 
 methods.forEach((button) => {

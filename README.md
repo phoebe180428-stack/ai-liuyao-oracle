@@ -94,6 +94,12 @@ demo/index.html
 
 The demo is intentionally static. It works without a build step and shows the intended product experience: question input, casting method, animated six-line reveal, primary hexagram, changed hexagram, and AI-ready interpretation.
 
+The demo also generates an immersive static reading page. After casting, open **View Immersive Reading** to see a shareable visual result page backed by URL parameters:
+
+```txt
+demo/reading.html?method=numbers&numbers=12,25,8&question=...
+```
+
 ## Simulate A Skill Install
 
 Before publishing to GitHub, you can simulate what another developer would experience after copying `skill/SKILL.md` into their own model:

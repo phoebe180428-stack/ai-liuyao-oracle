@@ -150,6 +150,22 @@ button {
   font-weight: 900;
 }
 
+.immersive-link {
+  display: grid;
+  place-items: center;
+  min-height: 48px;
+  margin-top: 12px;
+  border: 1px solid rgba(217, 164, 65, 0.44);
+  border-radius: 8px;
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 900;
+}
+
+.immersive-link:hover {
+  background: rgba(217, 164, 65, 0.1);
+}
+
 .hidden {
   display: none;
 }
