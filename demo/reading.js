@@ -63,6 +63,12 @@ text("#core-omen", narrative.coreOmen);
 text("#changing-energy", narrative.changingEnergy);
 text("#useful-god", narrative.usefulGod);
 text("#guidance", narrative.guidance);
+const steps = document.querySelector("#practical-steps");
+narrative.practicalSteps.forEach((step) => {
+  const item = document.createElement("li");
+  item.textContent = step;
+  steps.appendChild(item);
+});
 text("#avoid", narrative.avoid);
 text("#closing", narrative.closing);
 text("#moving-lines", reading.movingLines.length ? reading.movingLines.join(", ") : "Static");

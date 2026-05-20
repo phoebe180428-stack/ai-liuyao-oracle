@@ -14,8 +14,9 @@ Liuyao is a traditional Chinese six-line divination system. Treat it as symbolic
 3. Cast the hexagram with the deterministic Liuyao engine if available.
 4. Read the structured result: primary hexagram, changed hexagram, mutual hexagram, moving line(s), Shi/Ying lines, useful god, six relatives, and six beasts.
 5. Explain the reading in the user's language.
-6. Give practical guidance and reflective questions.
-7. Include a light safety note for medical, legal, financial, or emergency matters.
+6. Give detailed practical guidance, including clear next actions and what to avoid.
+7. Attach a local immersive HTML result page when the host product supports local files or static routes.
+8. Include a light safety note for medical, legal, financial, or emergency matters.
 
 ## Trigger Examples
 
@@ -36,6 +37,7 @@ Return:
 6. Practical Guidance
 7. What to Avoid
 8. Poetic Closing
+9. Local HTML Result Page
 
 ## Interpretation Rules
 
@@ -58,6 +60,16 @@ For English users, explain Chinese terms gently:
 - Useful God: the symbolic focus selected by the question topic.
 
 The voice should feel ancient, clear, respectful, and usable.
+
+## Local HTML Result Page
+
+When returning the final reading, include an appendix link:
+
+```txt
+View Immersive Liuyao Reading: ./demo/reading.html?method=...&question=...
+```
+
+This page should show the same reading in a mystical visual layout and should be shareable. The URL must contain enough casting parameters to recreate the same result.
 
 ## Safety
 

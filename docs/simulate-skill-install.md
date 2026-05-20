@@ -21,6 +21,7 @@ Expected output:
 - Moving lines
 - Useful god
 - User-facing oracle interpretation
+- Attached local HTML result page
 - The prompt that would be sent to a real LLM
 
 This test does not require an API key. It verifies the local skill experience before you connect OpenAI, Claude, Gemini, or a custom model.

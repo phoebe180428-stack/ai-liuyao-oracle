@@ -29,7 +29,7 @@ const timeReading = castByTime({
   date: "2026-05-20T12:00:00+08:00"
 });
 
-assert.equal(timeReading.method, "numbers");
+assert.equal(timeReading.method, "time");
 assert.ok(timeReading.primaryHexagram.number >= 1);
 
 const skill = createLiuyaoSkill({ locale: "en" });
@@ -42,6 +42,8 @@ const result = await skill.run({
 
 assert.ok(result.prompt.includes("Liuyao"));
 assert.ok(result.narrative.guidance);
+assert.ok(result.narrative.practicalSteps.length >= 4);
+assert.ok(result.localHtml.url.includes("reading.html"));
 assert.ok(result.reading.primaryHexagram.nameZh);
 
 console.log("core tests passed");

@@ -195,6 +195,15 @@ h1 {
   line-height: 1.72;
 }
 
+.practical-steps {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding-left: 18px;
+  color: rgba(245, 234, 213, 0.8);
+  line-height: 1.62;
+}
+
 .closing {
   margin-top: 28px;
   color: var(--jade);

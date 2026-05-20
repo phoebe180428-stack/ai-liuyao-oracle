@@ -200,9 +200,15 @@ export function castByTime({ question = "", date = new Date(), topic = "general"
   const year = d.getFullYear();
   const month = d.getMonth() + 1;
   const day = d.getDate();
-  return castByNumbers({
+  const upper = trigramByRemainder[oneBasedMod(year, 8)];
+  const lower = trigramByRemainder[oneBasedMod(month, 8)];
+  const movingLine = oneBasedMod(day, 6);
+  return normalizeReading({
     question,
-    numbers: [year, month, day],
+    method: "time",
+    input: { date: d.toISOString(), numbers: [year, month, day] },
+    lines: [...lower.lines, ...upper.lines],
+    movingLines: [movingLine],
     topic,
     locale
   });

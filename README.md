@@ -110,6 +110,22 @@ npm run simulate
 
 This prints a full mock conversation, structured hexagram data, the user-facing reading, and the prompt that would be sent to a real LLM.
 
+The skill response also includes a local immersive HTML result page:
+
+```js
+const result = await liuyao.run({
+  method: "numbers",
+  question: "Will this project become popular?",
+  numbers: [34, 78, 9],
+  topic: "career"
+});
+
+console.log(result.localHtml.url);
+// ./demo/reading.html?method=numbers&question=...&numbers=34,78,9
+```
+
+An AI product can append this URL below the text interpretation as **View Immersive Reading**.
+
 ## Repository Map
 
 ```txt

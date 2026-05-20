@@ -88,6 +88,13 @@ function render(result) {
   document.querySelector("#core-omen").textContent = narrative.coreOmen;
   document.querySelector("#changing-energy").textContent = narrative.changingEnergy;
   document.querySelector("#guidance").textContent = narrative.guidance;
+  const steps = document.querySelector("#practical-steps");
+  steps.innerHTML = "";
+  narrative.practicalSteps.forEach((step) => {
+    const item = document.createElement("li");
+    item.textContent = step;
+    steps.appendChild(item);
+  });
   document.querySelector("#avoid").textContent = narrative.avoid;
   document.querySelector("#closing").textContent = narrative.closing;
   immersiveLink.href = immersiveUrl(method, payload);

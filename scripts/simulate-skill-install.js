@@ -19,7 +19,7 @@ const result = await liuyao.run({
   locale: "en"
 });
 
-const { reading, narrative, prompt } = result;
+const { reading, narrative, localHtml, prompt } = result;
 
 console.log("=== GitHub Visitor Simulation ===\n");
 console.log("1. Developer finds this repository on GitHub.");
@@ -47,8 +47,17 @@ console.log(`${narrative.title}\n`);
 console.log(`Core Omen: ${narrative.coreOmen}\n`);
 console.log(`Changing Energy: ${narrative.changingEnergy}\n`);
 console.log(`Guidance: ${narrative.guidance}\n`);
+console.log("Practical Steps:");
+narrative.practicalSteps.forEach((step, index) => {
+  console.log(`  ${index + 1}. ${step}`);
+});
+console.log("");
 console.log(`What to Avoid: ${narrative.avoid}\n`);
 console.log(`Closing: ${narrative.closing}\n`);
+
+console.log("=== Attached Local HTML Result Page ===\n");
+console.log(`${localHtml.label}: ${localHtml.url}`);
+console.log(`${localHtml.note}\n`);
 
 console.log("=== Prompt Sent To The Developer's Model ===\n");
 console.log(prompt.slice(0, 1400));
